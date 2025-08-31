@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* These are the only three lines needed to include all of Tailwind's styles */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: "Urbanist", sans-serif;
+  }
+
+  body {
+    background-color: #fcfbfc;
+    overflow-x: hidden;
+  }
+}
+
+@layer components {
+  /* Your custom component classes */
+  .input-box {
+    @apply w-full flex justify-between gap-3 text-sm text-black bg-gray-50/50 rounded px-4 py-3 mb-4 mt-3 border border-gray-100 outline-none focus-within:border-purple-300;
+  }
+  .btn-primary {
+    @apply w-full text-sm font-medium text-white bg-black p-[10px] rounded-md my-1 hover:text-black cursor-pointer;
+  }
+  /* ... add any other .btn classes here ... */
+  .form-input {
+    @apply w-full text-sm text-black outline-none bg-white border border-slate-100 px-2.5 py-3 rounded-md mt-2 placeholder:text-gray-500 focus-within:border-purple-300;
+  }
+}
+
+/* You can keep keyframes and print styles outside of layers */
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+/* ... etc. ... */
+
+@media print {
+  body * { visibility: hidden; }
+  .resume-container, .resume-container * { visibility: visible; }
+  .resume-container { position: absolute; left: 0; top: 0; width: 210mm !important; }
+}
